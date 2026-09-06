@@ -1,20 +1,15 @@
 class Solution:
 
     def encode(self, strs: List[str]) -> str:
-
-        encoded = ""
+        encoded = ''
 
         for s in strs:
-            s_length = len(s)
-
-            encoded += str(s_length) + "#" + s
+            encoded += str(len(s)) + '#' + s
 
         return encoded
 
-
     def decode(self, s: str) -> List[str]:
-
-        encoded = []
+        decoded = []
         index = 0
 
         while index < len(s):
@@ -23,12 +18,12 @@ class Solution:
             while s[j] != '#':
                 j += 1
 
-            w_length = int(s[index : j])
-            word = s[j + 1 : j + 1 + w_length]
+            length = int(s[index:j])
 
-            encoded.append(word)
+            j += 1
 
-            index = j + 1 + w_length
+            decoded.append(s[j: j + length])
 
-        return encoded
-            
+            index = j + length
+
+        return decoded
