@@ -10,8 +10,9 @@ class Solution:
         current = head
 
         while current:
-            next_node = current.next # save the next node
+            next_node = current.next
             current.next = prev
+
             prev = current
             current = next_node
 
